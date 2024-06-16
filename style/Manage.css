@@ -1,0 +1,362 @@
+#copyright {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 背景层 */
+#background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(source/IMG_4752.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 50px;
+  background-attachment: fixed;
+  filter: blur(10px);
+  /* 设置模糊度 */
+  z-index: -1;
+}
+
+/* 内容层 */
+#content-layer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: -webkit-linear-gradient(left, #13319c, transparent);
+  /* Safari 5.1-6 */
+  background: -o-linear-gradient(right, #13319c, transparent);
+  /* Opera 11.1-12 */
+  background: linear-gradient(to right, #13319c, transparent);
+  /* Standard syntax */
+  color: #fff;
+  padding: 7px;
+  z-index: 1;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+  float: left;
+}
+
+nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 43px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.5s ease;
+}
+
+.sidebar a:hover {
+  background-color: #1e90ff;
+  color: MediumBlue;
+}
+
+/* 新增的点击效果样式 */
+.sidebar-btn {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.sidebar-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 0 6px royalblue;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sidebar-btn:active {
+  filter: brightness(0.9);
+}
+
+.sidebar-btn:active::after {
+  opacity: 0.4;
+}
+
+.main-content {
+  margin-left: 200px; /* 留出左边栏的宽度 */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 44px;
+  display: flex;
+  width: 100%;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome {
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; 或您需要的宽度 */
+  /* height: 100px; 或您需要的高度 */
+}
+
+#welcome p {
+  margin: 0; /* 移除默认的 margin */
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* 这是Update按钮的CSS */
+.button[type="text"] {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.button[type="text"]:hover,
+.button[type="text"]:focus {
+  background: rgba(0, 0, 0, 0.018);
+}
+
+.button.button:active {
+  filter: brightness(0.9);
+}
+
+.button.button:active:not([type="text"])::after {
+  transition: 0s;
+  box-shadow: none;
+  opacity: 0.4;
+}
+
+.icon {
+  width: 1em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  fill: currentColor;
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+.button:active .icon {
+  transform: rotate(0);
+  transition: 0s;
+}
+
+/* 下面是第一个界面的CSS */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 620px;
+}
+
+#search-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px; /* 圆角仅在左侧 */
+  outline: none;
+  width: 600px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-left: none; /* 移除左边框与输入框融为一体 */
+  border-radius: 0 5px 5px 0; /* 圆角仅在右侧 */
+  background-color: #1e90ff;
+  color: white;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #00bfff;
+}
+
+/* 下面是第二个界面的CSS */
+.address-container {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.address-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.address-form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.address-form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.address-form input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 针对Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#country {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.address-form .submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e90ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.address-form .submit-btn:hover {
+  background-color: #00bfff;
+}
+
+/* 这里是table的代码 */
+
+.staff-container {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 1000; /* 确保在最上层 */
+}
+
+.staff-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.staff-container {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+#myCustomTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#myCustomTable th,
+#myCustomTable td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#myCustomTable th {
+  background-color: #f2f2f2;
+}
+
+#myCustomTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.paginationButton {
+  display: block;
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.paginationButton:hover {
+  background-color: #00bfff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}

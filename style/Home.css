@@ -1,0 +1,121 @@
+#copyright {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+body {
+  background-image: url(source/IMG_4752.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 50px;
+  background-attachment: fixed;
+}
+
+.my-element {
+  backdrop-filter: blur(5px);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: medium;
+  background: -webkit-linear-gradient(left, #13319c, transparent);
+  /* Safari 5.1-6 */
+  background: -o-linear-gradient(right, #13319c, transparent);
+  /* Opera 11.1-12 */
+  background: linear-gradient(to right, #13319c, transparent);
+  /* Standard syntax */
+  color: #fff;
+  padding: 10px;
+  z-index: 1;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+  float: left;
+}
+
+nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* 搜索框容器样式 */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white; /* 设置背景色为白色 */
+  border-radius: 21px; /* 添加圆角 */
+  padding: 10px; /* 增加内边距 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影效果 */
+}
+
+/* 搜索输入框样式 */
+.search-input {
+  width: 700px;
+  flex-grow: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* 添加圆角 */
+}
+
+/* 搜索按钮样式 */
+.search-button {
+  margin-left: 10px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px; /* 添加圆角 */
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.help-container {
+  width: 1200px;
+  margin: auto;
+  padding: 20px;
+  padding-top: 40px;
+  padding-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}

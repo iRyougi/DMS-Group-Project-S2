@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Group Project by G8</title>
+    <link rel="stylesheet" href="style/About.css">
+    <script src="js/function.js"></script>
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #draw-border {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+        #login-button {
+            border: 0;
+            background: none;
+            text-transform: uppercase;
+            color: #4361ee;
+            font-weight: bold;
+            position: relative;
+            outline: none;
+            padding: 7px 20px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        #login-button::before,
+        #login-button::after {
+            box-sizing: inherit;
+            position: absolute;
+            content: '';
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+        }
+
+        #login-button::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        #login-button::before {
+            top: 0;
+            left: 0;
+        }
+
+        #login-button:hover::before,
+        #login-button:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+
+        #login-button:hover::before {
+            border-top-color: #4361ee;
+            border-right-color: #4361ee;
+            transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+        }
+
+        #login-button:hover::after {
+            border-bottom-color: #4361ee;
+            border-left-color: #4361ee;
+            transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 1s;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        a:hover {
+            color: #E6E6FA;
+            /* 鼠标悬停时改变链接颜色 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="style/source/wuliu2.svg" style="height: 28px; width: auto;">
+        <nav style="display: inline-block; padding-left: 10px;">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="Track.html">Track</a></li>
+                <li><a href="Help.html">Help</a></li>
+            </ul>
+        </nav>
+        <div id="draw-border" style="display: inline-block;">
+            <button id="login-button" onclick="location.href='Login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="help-container">
+            <h3>Why we design this Website?</h3>
+            <p>With the development of internet and logistics, more and more people choose to purchase online. It brings
+                many conveniences to people, but some problems are generated at the same time. One of those difficulties
+                is that people are hard to locate particular procedure or person when they receive a broken package.
+                Thus, we want to create an information system for tracking the delivery of specific goods, and we aim to
+                establish a large-scale network that keeps following all the deliveries so that users can interact with
+                easily. Meanwhiles, administrators can monitor the package tracking status and work productivity of
+                staffs at any time. In this way, both efficiency and quality in logistics can be improved.</p>
+            <br>
+            <h3>What can we do?</h3>
+            <p>In our websites, we will record and provide following information for users:
+                <br>
+                &#149; Personnel information (ID) of Customers, Couriers, truck drivers;
+                <br>
+                &#149; Information (location, status, ID) of goods that is to be delivered;
+                <br>
+                &#149; Database of stations within each city with IDs.
+            </p>
+            <br>
+            <h3>Our Features</h3>
+            <p>
+                &#149; Customers can track goods with ID;
+                <br>
+                &#149; Couriers handles delivery from station to the customer’s address: they update the goods’ status
+                during
+                delivery;
+                <br>
+                &#149; Truck drivers handles goods transfers from station to station when the destination of the goods
+                and the
+                current station does not match;
+                <br>
+                &#149; Couriers can select what goods they want to handle instead of system auto-assign;
+                Admins have rights to monitor delivery and transfer specifics.
+            </p>
+            <br>
+            <h3>Our Design</h3>
+            <p>1. Customers have attributes: customer_ID, name, address (unit number, avenue, city);
+                <br>
+                2. Goods have attributes: goods_ID, current location (station), status, destination (address),
+                assigned_truck_ID (handles transfer), assigned_courier_ID (handles delivery);
+                <br>
+                3. Courier have attributes: courier_ID, name, working location, packages delivered;
+                <br>
+                4. Truck drivers have attributes: driver_ID, current station, next station, packages transferred;
+                <br>
+                5. Staff members have attributes: staff_ID, name, and working location;
+                <br>
+                6. Password databases: one for customers; one for couriers, staffs, and drivers; another for
+                admin/manager;
+                <br>
+                7. Customers can register themselves; couriers, drivers and staffs are registered by admin;
+                <br>
+                8. Customers can track goods by logging into their account and using the good’s ID to find additional
+                information:
+                <br>
+                (1) Current status of goods
+                <br>
+                &#149; In station
+                <br>
+                &#149;Transferring station
+                <br>
+                &#149; Awaiting delivery
+                <br>
+                &#149; In delivery
+                <br>
+                &#149; Delivered
+                <br>
+                (2) Location of goods
+                <br>
+                (3) Courier information (assigned_courier_ID, courier name);
+                <br>
+                9. Goods that are in “awaiting delivery” status will be handled by Couriers, they will only deliver
+                goods that are in the station where they work. Besides, Couriers need to check off all the goods before
+                delivering, then updates the status from “awaiting delivery” to “in delivery”. Once the goods are
+                delivered to customers, the courier needs to change the status from “in delivery” to “delivered”;
+                <br>
+                10. Goods that are “in station” will be handled by truck drivers, they will only transfer goods if
+                drivers and goods have the same destination. Truck drivers need to check off all the goods before they
+                begin to transfer, then updates the status from “in station” to “transferring station”. Once they are at
+                the destined station, the driver updates the status again, from “transferring station” to “awaiting
+                delivery”;
+                <br>
+                11. Once truck drivers arrive at their “next station”, a new destination is given and goods matching
+                their destination will be transferred;
+                <br>
+                12. Staff members assign routes to truck drivers, and distribute destinations for drivers;
+                <br>
+                13. Admins have access to all information such as number of goods handled by each courier and driver,
+                and also the entire list of goods. Besides, they can also search for each individual goods with
+                goods_ID;
+            </p>
+            <img src="style/source/COMP3013_23F_Group8_ER_diagram_draft.jpg" alt="Image Description"
+                class="image-style">
+        </div>
+        <div class="spacer">
+        </div>
+    </div>
+
+    <div id="copyright">
+        <p style="font-size: 10px;">&copy; Design by Group 8 IN Section 1003</p>
+    </div>
+    <!--这个块是版权信息-->
+
+
+</body>
+
+</html>

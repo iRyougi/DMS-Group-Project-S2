@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style/Login.css">
+    <script src="js/function.js"></script>
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        a:hover {
+            color: #E6E6FA;
+        }
+
+        .box {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            margin: 175px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .box-login {
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 100%;
+            border-right: 1px solid #ccc;
+            opacity: 1;
+            border-top-left-radius: 10px;
+            /* 左上角圆角 */
+            border-bottom-left-radius: 10px;
+            /* 左下角圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-register {
+            width: 400px;
+            height: 100%;
+            float: right;
+            opacity: 0;
+            border-top-right-radius: 10px;
+            /* 左上角圆角 */
+            border-bottom-right-radius: 10px;
+            /* 左下角圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 35px;
+        }
+
+        input {
+            display: block;
+            width: 250px;
+            height: 30px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border: 0;
+            border-bottom: 1px solid #000;
+            outline: none;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        #user {
+            padding-top: 35px;
+        }
+
+        button {
+            width: 250px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: #1e90ff;
+            border: 0;
+            color: white;
+            margin-left: 75px;
+            margin-top: 30px;
+            font-size: 15px;
+        }
+
+        /* .box-register input {
+            margin-bottom: 10px;
+        } */
+
+        .cover {
+            position: absolute;
+            top: -50px;
+            right: 75px;
+            width: 325px;
+            height: 500px;
+            background-color: #1E90FF;
+            text-align: center;
+        }
+
+        .cover div {
+            width: 100%;
+            margin-top: 225px;
+            text-align: center;
+        }
+
+        .cover div p {
+            display: inline;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        /* 淡入 */
+        .fadeIn {
+            opacity: 1;
+            transition: all 1s;
+        }
+
+        /* 淡出 */
+        .fadeOut {
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        /* 遮罩层向左移动 */
+        .move-left {
+            transition: all 1s;
+            transform: translateX(-325px);
+        }
+
+        /* 遮罩层回到原来的位置 */
+        .move-right {
+            transition: all 1s;
+            transform: translateX(0);
+        }
+
+        .button1:hover {
+            background: #00bfff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background-layer"></div>
+    <div id="content-layer">
+        <header>
+            <img src="style/source/wuliu2.svg" style="height: 28px; width: auto;">
+            <nav style="display: inline-block;">
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="Track.html">Track</a></li>
+                    <li><a href="About.html">About</a></li>
+                </ul>
+            </nav>
+            <div id="draw-border" style="display: inline-block;">
+                <button class="button2" onclick="location.href='Admin_login.html'">Administrator</button>
+            </div>
+        </header>
+
+        <div class="box">
+            <div class="box-login" id="login">
+                <h1>Login</h1>
+                <form action="php/check.php" method="POST">
+                    <!-- 登录系统 -->
+                    <p style="padding-left: 74px;" id="user">Username</p>
+                    <input type="text" class="username" />
+                    <p style="padding-left: 74px;" id="psw">Password</p>
+                    <input type="password" class="password" />
+                    <button type="submit" class="button1">Login!</button>
+                </form>
+            </div>
+            <div class="box-register" id="register">
+                <h1>Register</h1>
+                <form action="php/register.php" method="POST">
+                    <!-- 注册系统 -->
+                    <p style="padding-left: 74px;" id="user">Username</p>
+                    <input type="text" class="username" />
+                    <p style="padding-left: 74px;" id="psw">Password</p>
+                    <input type="password" class="password" />
+                    <!-- <p style="padding-left: 74px;" style="display: inline-block;">You are:</p> -->
+                    <!-- <div class="radio-buttons">
+                        <input type="radio" name="radio-group" value="buyer" id="option1">
+                        <label for="option1">Buyer</label>
+
+                        <input type="radio" name="radio-group" value="seller" id="option2">
+                        <label for="option2">Seller</label>
+                    </div> -->
+                    <button type="submit" class="button1">Register!</button>
+                </form>
+            </div>
+            <div class="cover" id="cover">
+                <div>
+                    <!-- 这里是遮挡动画，不要乱动 -->
+                    <p id="mes">No Account?</p>
+                    <a href="javascript:;" id="btn">Register!</a>
+                </div>
+            </div>
+
+            <div id="copyright">
+                <p style="font-size: 10px;">&copy; Design by Group 8 IN Section 1003</p>
+            </div>
+            <!--这个块是版权信息-->
+        </div>
+    </div>
+    <script>
+        // 这里是动画函数，也不要乱动
+        var btn = document.querySelector("#btn");
+        var cover = document.querySelector("#cover");
+        var mes = document.querySelector("#mes");
+        var login = document.querySelector("#login");
+        var reg = document.querySelector("#register");
+        var flag = 0;
+        btn.addEventListener('click', function () {
+            if (flag == 0) {
+                // 利用增加类名的方式实现动画
+                cover.className = "cover move-left";
+                reg.className = "box-register fadeIn";
+                login.className = "box-login fadeOut";
+                mes.innerText = "Already have Account?\n";
+                btn.innerText = "Login!";
+                flag = 1;
+            } else {
+                cover.className = "cover move-right";
+                login.className = "box-login fadeIn";
+                reg.className = "box-register fadeOut";
+                mes.innerText = "No Account?\n";
+                btn.innerText = "Register!";
+                flag = 0;
+            }
+        })
+    </script>
+</body>
+
+</html>

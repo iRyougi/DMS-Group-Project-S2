@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Group Project by G8</title>
+    <link rel="stylesheet" href="style/Track.css">
+    <script src="js/function.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #draw-border {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+        #login-button {
+            border: 0;
+            background: none;
+            text-transform: uppercase;
+            color: #4361ee;
+            font-weight: bold;
+            position: relative;
+            outline: none;
+            padding: 7px 20px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        #login-button::before,
+        #login-button::after {
+            box-sizing: inherit;
+            position: absolute;
+            content: '';
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+        }
+
+        #login-button::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        #login-button::before {
+            top: 0;
+            left: 0;
+        }
+
+        #login-button:hover::before,
+        #login-button:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+
+        #login-button:hover::before {
+            border-top-color: #4361ee;
+            border-right-color: #4361ee;
+            transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+        }
+
+        #login-button:hover::after {
+            border-bottom-color: #4361ee;
+            border-left-color: #4361ee;
+            transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 1s;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        a:hover {
+            color: #E6E6FA;
+            /* 鼠标悬停时改变链接颜色 */
+        }
+
+        body,
+        html,
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=您的密钥"></script>
+
+</head>
+
+<body>
+    <header>
+        <img src="style/source/wuliu2.svg" style="height: 28px; width: auto;">
+        <nav style="display: inline-block; padding-left: 10px;">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="Track.html">Track</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </nav>
+        <div id="draw-border" style="display: inline-block;">
+            <button id="login-button" onclick="location.href='Login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="allmap"></div>
+    </div>
+
+    <div id="copyright">
+        <p style="font-size: 10px;">&copy; Design by Group 8 IN Section 1003</p>
+    </div>
+    <!--这个块是版权信息-->
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+    // GL版命名空间为BMapGL
+    // 按住鼠标右键，修改倾斜角和角度
+    var map = new BMapGL.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMapGL.Point(116.280190, 40.049191), 19);  // 初始化地图,设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    map.setHeading(64.5);
+    map.setTilt(73);
+</script>
